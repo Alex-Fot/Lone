@@ -1,4 +1,12 @@
 import { AppRegistry } from 'react-native';
 import App from './App';
+import {
+  StackNavigator,
+} from 'react-navigation';
 
-AppRegistry.registerComponent('Lone', () => App);
+const Lone = StackNavigator({
+  Home: { screen: App }
+});
+
+
+AppRegistry.registerComponent('Lone', () => Lone);
