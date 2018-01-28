@@ -7,10 +7,11 @@ import {
 
 import Buy from './Buy'
 import Read from './Read'
+import Social from './Social'
 
 const ReadNavigator = TabNavigator({
-	"Social Justice": {screen: Read},
 	"Climate Change": {screen: Read},
+	"Social Justice": {screen: Social},
 	"Poverty": {screen: Read},
 	"Disease": {screen: Read},
 	"Education": {screen: Read}
