@@ -10,50 +10,55 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  Image
 } from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-	'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-	'Shake or press menu button for dev menu',
-});
 
 export default class App extends Component<{}> {
   render() {
 	return (
 	  <View style={styles.container}>
+	  <Image source={require('./lonewolf.png')} style = {styles.image} />
 		<Text style={styles.welcome}>
-		  Welcome to React Native!
+		  Welcome to Lone!
 		</Text>
-		<Text style={styles.instructions}>
-		  To get started, edit App.js
+		<Text style={styles.text}>
+		  This is a mobile application that is designed to allow you to invest in public projects.
 		</Text>
-		<Text style={styles.instructions}>
-		  {instructions}
+		<Text style={styles.text}>
+		  Your ROI will not be as high as other traditional forms of investment and is much riskier. This application is for those who are only interested social impact of their investments.
 		</Text>
-		<Button onPress={() => this.props.navigation.navigate('Read')} title="Back"></Button>
+		<Button onPress={() => this.props.navigation.navigate('Read')} title="Read"></Button>
+		<Text>{"\n"}</Text>
+		<Button onPress={() => this.props.navigation.navigate('Buy')} title="Buy"></Button>
+
 	  </View>
 	);
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-	flex: 1,
-	justifyContent: 'center',
-	alignItems: 'center',
-	backgroundColor: '#F5FCFF',
-  },
+	container: {
+	  flex: 3,
+	  justifyContent: 'flex-start',
+	  alignItems: 'center',
+	  backgroundColor: '#F5FCFF',
+	},
   welcome: {
-	fontSize: 20,
+	fontSize: 25,
 	textAlign: 'center',
 	margin: 10,
   },
-  instructions: {
-	textAlign: 'center',
-	color: '#333333',
-	marginBottom: 5,
+  text: {
+   fontSize: 15,
+   textAlign: 'center',
+   margin: 10,
+  },
+  image: {
+	  marginTop: 3,
+	  height: '35%',
+	  width: '75%',
+	  resizeMode: "contain",
+	  backgroundColor: '#F5FCFF',
   },
 });
