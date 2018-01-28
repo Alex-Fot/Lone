@@ -9,7 +9,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  FlatList,
+  Button
 } from 'react-native';
 
 
@@ -18,8 +20,20 @@ export default class Buy extends Component<{}> {
 	return (
 	  <View style={styles.container}>
 		<Text style={styles.welcome}>
-		 Buy!
 		</Text>
+		<FlatList
+		 data={[
+		   {key: 'Devin'},
+		   {key: 'Jackson'},
+		   {key: 'James'},
+		   {key: 'Joel'},
+		   {key: 'John'},
+		   {key: 'Jillian'},
+		   {key: 'Jimmy'},
+		   {key: 'Julie'},
+		 ]}
+		 renderItem={({item}) => <Button style={styles.item} title = {item.key} />}
+	   />
 	  </View>
 	);
   }
@@ -28,9 +42,13 @@ export default class Buy extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
 	flex: 1,
-	justifyContent: 'center',
-	alignItems: 'center',
 	backgroundColor: '#F5FCFF',
+  },
+  item: {
+	marginLeft: 15,
+	padding: 10,
+	fontSize: 18,
+	height: 44,
   },
   welcome: {
 	fontSize: 20,
