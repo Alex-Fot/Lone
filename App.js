@@ -33,7 +33,7 @@ export default class App extends Component<{}> {
 		<Text style={styles.instructions}>
 		  {instructions}
 		</Text>
-		<Button onPress={() => this.props.navigation.navigate('Transactions')} title="Back"></Button>
+		<Button onPress={() => this.props.navigation.navigate('Read')} title="Back"></Button>
 	  </View>
 	);
   }

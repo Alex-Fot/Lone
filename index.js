@@ -6,16 +6,28 @@ import {
 } from 'react-navigation';
 
 import Buy from './Buy'
-import Sell from './Sell'
+import Read from './Read'
 
-const TransactionsNavigator = TabNavigator({
-	"Buy a Loan": {screen: Buy},
-	"Get a Loan": {screen: Sell}
+const ReadNavigator = TabNavigator({
+	"Social Justice": {screen: Read},
+	"Climate Change": {screen: Read},
+	"Poverty": {screen: Read},
+	"Disease": {screen: Read},
+	"Education": {screen: Read}
+},
+{
+	swipeEnabled:false,
+		animationEnabled: true,
+		tabBarPosition: 'top',
+		tabBarOptions: {
+		  scrollEnabled:true,
+		},
 })
 
 const Lone = StackNavigator({
   Home: { screen: App },
-  Transactions: {screen: TransactionsNavigator}
+  Buy: {screen: Buy},
+  Read: {screen: ReadNavigator}
 });
 
 

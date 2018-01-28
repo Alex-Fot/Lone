@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-export default class Sell extends Component<{}> {
+export default class Read extends Component<{}> {
   render() {
 	return (
 	  <View style={styles.container}>
