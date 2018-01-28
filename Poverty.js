@@ -10,7 +10,10 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView
+  ScrollView,
+  TouchableHighlight,
+  Linking,
+  Button
 } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
@@ -22,15 +25,19 @@ export default class Poverty extends Component<{}> {
 			news: [],
 			visible: true
 		}
+		this.goLink = this.goLink.bind(this)
+	}
+	goLink(link){
+		console.log(link)
+		Linking.openURL(link)
 	}
 	componentWillMount(){
-		fetch("https://newsapi.org/v2/everything?q=poverty&apiKey=" + String(API.apiKey))
+		fetch("https://newsapi.org/v2/everything?sortedBy=publishedAt&q=poverty&apiKey=" + String(API.apiKey))
 		 .then(response => response.json())
 		 .then(responseJson => {
 		   allArticles = responseJson['articles']
 		   for(var i = 0; i < allArticles.length; i++)
 		   {
-			   console.log(allArticles[i])
 			   arrElem = {"title": allArticles[i]['title'], "url": allArticles[i]['url']}
 			   news_arr = this.state.news
 			   news_arr.push(arrElem)
@@ -45,7 +52,7 @@ export default class Poverty extends Component<{}> {
 		  scroll = <ScrollView>
 			   {
 				  this.state.news.map((item, index) => (
-						<View><Text style={styles.welcome}>{item.title}</Text></View>
+					  <Button onPress={() =>this.goLink(item.url)} title= {item.title} />
 				  ))
 			   }
 			</ScrollView>
